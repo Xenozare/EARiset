@@ -6,40 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="style.css">
     <title>Login</title>
   </head>
   <body>
-<div class="container-xxl">
+<div class="container-xxl ">
+  <row class="row justify-content-center">
     <h1>LOGIN</h1>
-
-  <div class="container-sm">
-  <form action="index.html" method="post">
-    <div class="imgcontainer">
-      <img src="img/mainlogo.jpg" alt="Avatar" class="avatar">
-    </div>
-  
-  
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput" class="emails text-white">Email address</label>
-      </div>  
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword" class="pass text-white">Password</label>
+    </row>
+    <row class="row justify-content-center">
+    <div class="container-sm">
+    <form action="index.html" method="post">
+      <div class="imgcontainer">
+        <img src="img/mainlogo.jpg" alt="Avatar" class="avatar">
       </div>
-      <label class="remember text-white">
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-      <button type="submit" class="text-dark">Login</button>
-      <div>
-      
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput" class="emails text-white">Email address</label>
+        </div>  
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword" class="pass text-white">Password</label>
+        </div>
+        <label class="remember text-white">
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <button type="submit" class="text-dark">Login</button>
+        <div>
+        
+      </div>
+    </form>
     </div>
-  </form>
+  </row>
+    
   </div>
-  </div>
-<footer class="py-3 bg-dark" id="footer-bottom">
+<footer class="py-3 bg-dark fixed-bottom" id="footer-bottom">
   <div  >
       <!-- <p class="m-0 text-center text-white">Legal Notice | Related Links</p> -->
       <p class="m-0 text-center text-white">Copyright &copy; Web Programing</p>
