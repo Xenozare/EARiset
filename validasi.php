@@ -15,6 +15,7 @@ if(isset($_POST['btnLogin'])){
   }
 
   else{
+    echo "<script>alert('Username atau password salah')</script>";
     echo "<script>window.location='login.php'</script>";
   }
 }

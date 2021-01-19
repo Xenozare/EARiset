@@ -49,7 +49,7 @@ mysqli_close($conn);
 <div class= "container">
     <div class= "row">
         <div class= "col-md-12">
-            <h1 align = "center">Appplicant</h1>
+            <h1 class="text-center">Applicant</h1>
         </div>
     </div>
 
