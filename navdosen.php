@@ -10,16 +10,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="homedosen.php">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="formmahasiswa.php">Buat research baru</a>
+        <a class="nav-link" href="homepending.php">Home Pending<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="form.php">Buat research baru</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="logout.php">Logout</a>
       </li>
       <li class="nav-item">
-        <label class="nav-link">Mahasiswa
+        <label class="nav-link">Dosen
         </label>
       </li>
     </ul>   

@@ -20,7 +20,7 @@ if (isset($_POST['btnsubmit'])){
     $publisher = 
     $title = $_POST['judul'];
     $detail = $_POST['detail'];
-    $sql = "INSERT INTO research_dosen (research_id, Research_name, Description, Publisher, Status, last_updated) VALUES ('$person','$title','$detail', 10001,'Pending',now());";
+    $sql = "INSERT INTO research_dosen (research_id, Research_name, Description, Publisher, Status, last_updated) VALUES ('$person','$title','$detail', 10001,'Accepted',now());";
     if (mysqli_query($conn,$sql)){
         echo ("<script>
           window.alert('Data Berhasil Ditambahkan');
@@ -43,7 +43,7 @@ mysqli_close($conn);
 </head>
 <body>
   <?php 
-  include 'nav.php';
+  include 'navdosen.php';
     ?>
     <div class="page-wrap">
 <div class= "container">

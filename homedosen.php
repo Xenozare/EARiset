@@ -32,7 +32,7 @@ $data = mysqli_fetch_array($id);
     </head>
     <body>
   <?php 
-  include 'nav.php';
+  include 'navdosen.php';
     ?>
     <div class="page-wrap">
       <?php 

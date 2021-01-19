@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="style.css">
     <title>Login</title>
   </head>
-  <body>
+  <body style="background-color: lightgray">
   <form action="validasi.php" method="POST">
   <div class="container"> 
     <h1 class="text-center mt-5 mb-5">Login</h1>
@@ -28,14 +28,23 @@ session_start();
     </div>
     <div class="row">
       <div class="col">
-        <label class="text-dark mt-3">Email :</label>
-        <input type="email" class="form form-control" placeholder="Masukkan email anda" name="username">
+        <label class="text-dark mt-3">Username :</label>
+        <input type="text" class="form form-control" placeholder="Masukkan username anda" name="username">
       </div>
     </div>
     <div class="row mt-3">
       <div class="col">
         <label class="text-dark">Password :</label>
         <input type="password" class="form form-control" placeholder="*******" name="password">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+      <label class="text-dark">Role :</label>
+      <select name="role">
+        <option value="Dosen">Dosen</option>
+        <option value="Mahasiswa">Mahasiswa</option>
+  </select>
       </div>
     </div>
     <div class="row mt-3">

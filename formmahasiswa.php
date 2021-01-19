@@ -9,7 +9,7 @@ $conn = mysqli_connect($host, $name, $pass, $database);
 if (!$conn) {
     return die("Connection failed: " . mysqli_connect_error());
 }
-$query = "SELECT * FROM research_dosen WHERE research_id=(SELECT max(research_id) FROM research_dosen)";
+$query = "SELECT * FROM research WHERE research_id=(SELECT max(research_id) FROM research)";
 $id = mysqli_query($conn,$query);
 
 $dataperson = mysqli_fetch_assoc($id);
@@ -20,12 +20,12 @@ if (isset($_POST['btnsubmit'])){
     $publisher = 
     $title = $_POST['judul'];
     $detail = $_POST['detail'];
-    $sql = "INSERT INTO applicant (Research_ID, User_ID, Status, motivation) VALUES ('$person','$title','Pending','$detail');";
+    $sql = "INSERT INTO research (research_id, Research_name, Description, Publisher, Status, last_updated) VALUES ('$person','$title','$detail', 10001,'Pending',now());";
     if (mysqli_query($conn,$sql)){
         echo ("<script>
-window.alert('Data Berhasil Ditambahkan');
-window.location.href= 'home.php';
-</script>");
+          window.alert('Data Berhasil Ditambahkan');
+          window.location.href= 'home.php';
+          </script>");
     }
     else{
         echo "Error: ".$sql."<br>".mysqli_error($conn);
@@ -49,21 +49,21 @@ mysqli_close($conn);
 <div class= "container">
     <div class= "row">
         <div class= "col-md-12">
-            <h1 class="text-center">Applicant</h1>
+            <h1 align = "center">Research Project</h1>
         </div>
     </div>
 
-    <form action="form.php" method="post">
+    <form action="formmahasiswa.php" method="post">
     <div class="form-group">
     <label for="researchid"><h3>Research ID</h3></label>
     <input type="text" class="form-control" id="researchid" readonly placeholder="<?php echo $person?>">
   </div>
   <div class="form-group">
-    <label for="UserID"><h3>NIM</h3></label>
-    <input type="text" class="form-control" id="UserID" placeholder="Masukkan nim anda" name="judul">
+    <label for="researchtitle"><h3>Research Title</h3></label>
+    <input type="text" class="form-control" id="researchtitle" placeholder="Research Title here" name="judul">
   </div>
   <div class="form-group">
-    <label for="detail"><h3>Motivation</h3></label>
+    <label for="detail"><h3>Details</h3></label>
     <textarea class="form-control" id="detail" rows="10" style="overflow: auto;" name="detail"></textarea>
   </div>
   <input type="submit" class="btn btn-primary" name="btnsubmit">

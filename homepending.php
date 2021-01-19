@@ -1,23 +1,10 @@
 <?php
-session_start();
+include 'Koneksi/koneksi.php';
 
-$host = "localhost";
-$name = "admin";
-$pass = "1234";
-$database = "eariset";
-
-$conn = mysqli_connect($host, $name, $pass, $database);
-
-if (!$conn) {
-    return die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT * FROM research WHERE status='Accepted'";
-$result = mysqli_query($conn,$sql);
-
-$id = mysqli_query($conn,"SELECT * FROM research_mahasiswa");
-$data = mysqli_fetch_array($id);
+  $sql2 = "SELECT * FROM research WHERE status='Pending'";
+  $result = mysqli_query($con,$sql2);
 ?>
+
 <html>
     <head>
         <title>Home</title>
@@ -31,8 +18,8 @@ $data = mysqli_fetch_array($id);
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-  <?php 
-  include 'nav.php';
+    <?php 
+  include 'navdosen.php';
     ?>
     <div class="page-wrap">
       <?php 
@@ -52,8 +39,29 @@ $data = mysqli_fetch_array($id);
                           <h5 class="card-title"><?php echo $row["Research_name"]; ?></h5>
                           <p class="card-text" style="overflow: hidden; max-height: 130px"><?php echo $row["Description"]; ?></p>
                           <p class="card-text"><small class="text-muted">Last Updated <?php echo $row["last_updated"]; ?></small></p>
-                          <a  href="applicant.php" style="color: white"><button type="button" class="btn btn-primary btn-sm">Join Research</button></a>
+                          <form action='' method='POST'>
+                          <button type="submit" name="btnAccept" class="btn btn-success btn-sm">Accept</button></>
+                          <?php 
+                            if(isset($_POST['btnAccept'])){
+                              $status = $_POST['status'];
+                              $id = $row['research_id'];
+                            
+                              $sql = "UPDATE research SET status='Accepted' WHERE research_id='$id'";
 
+                              if($con->query($sql) === true){
+                                //echo "Data berhasil ditambahkan";
+                              ?>
+                                <script>
+                                alert('Research diterima');
+                                window.location='homedosen.php';
+                                </script>
+                              <?php
+                              }else{
+                                echo "Error: ".$sql."<br>".$con->error;
+                              }
+                            }
+                          ?>
+                          </form>
                         </div>
                         </div>
                         </div>
@@ -64,6 +72,6 @@ $data = mysqli_fetch_array($id);
       }
         ?>
             </div>
-</div>
+</div>  
     </body>
 </html>
