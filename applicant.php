@@ -1,37 +1,5 @@
 <?php
-$host = "localhost";
-$name = "admin";
-$pass = "1234";
-$database = "eariset";
-
-$conn = mysqli_connect($host, $name, $pass, $database);
-
-if (!$conn) {
-    return die("Connection failed: " . mysqli_connect_error());
-}
-$query = "SELECT * FROM research_dosen WHERE research_id=(SELECT max(research_id) FROM research_dosen)";
-$id = mysqli_query($conn,$query);
-
-$dataperson = mysqli_fetch_assoc($id);
-
-$person = $dataperson['research_id']+1;
-
-if (isset($_POST['btnsubmit'])){
-    $publisher = 
-    $title = $_POST['judul'];
-    $detail = $_POST['detail'];
-    $sql = "INSERT INTO applicant (Research_ID, User_ID, Status, motivation) VALUES ('$person','$title','Pending','$detail');";
-    if (mysqli_query($conn,$sql)){
-        echo ("<script>
-window.alert('Data Berhasil Ditambahkan');
-window.location.href= 'home.php';
-</script>");
-    }
-    else{
-        echo "Error: ".$sql."<br>".mysqli_error($conn);
-    }
-}
-mysqli_close($conn);
+session_start()
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,21 +21,21 @@ mysqli_close($conn);
         </div>
     </div>
 
-    <form action="form.php" method="post">
-    <div class="form-group">
-    <label for="researchid"><h3>Research ID</h3></label>
-    <input type="text" class="form-control" id="researchid" readonly placeholder="<?php echo $person?>">
-  </div>
   <div class="form-group">
-    <label for="UserID"><h3>NIM</h3></label>
-    <input type="text" class="form-control" id="UserID" placeholder="Masukkan nim anda" name="judul">
+    <label for="UserID"><h3>Email</h3></label>
+    <input type="email" class="form-control" id="UserID" placeholder="Masukkan email anda">
   </div>
   <div class="form-group">
     <label for="detail"><h3>Motivation</h3></label>
-    <textarea class="form-control" id="detail" rows="10" style="overflow: auto;" name="detail"></textarea>
+    <textarea class="form-control" id="detail" rows="10" style="overflow: auto;"></textarea>
   </div>
-  <input type="submit" class="btn btn-primary" name="btnsubmit">
-</form>
+  <form action='' method="POST">
+  <button type="submit" class="btn btn-primary" name="btnDewa">Submit<?php
+    if(isset($_POST['btnDewa'])){
+      echo("<script>alert('We will inform you later by email. Thankyou for your interests in joining this research!')</script>");
+    }
+  ?>
+  </form>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
