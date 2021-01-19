@@ -23,9 +23,9 @@ if (isset($_POST['btnsubmit'])){
     $sql = "INSERT INTO research_dosen (research_id, Research_name, Description, Publisher, Status, last_updated) VALUES ('$person','$title','$detail', 10001,'Pending',now());";
     if (mysqli_query($conn,$sql)){
         echo ("<script>
-window.alert('Data Berhasil Ditambahkan');
-window.location.href= 'home.php';
-</script>");
+          window.alert('Data Berhasil Ditambahkan');
+          window.location.href= 'home.php';
+          </script>");
     }
     else{
         echo "Error: ".$sql."<br>".mysqli_error($conn);
