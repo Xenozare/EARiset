@@ -20,7 +20,7 @@ if (isset($_POST['btnsubmit'])){
     $publisher = 
     $title = $_POST['judul'];
     $detail = $_POST['detail'];
-    $sql = "INSERT INTO research_dosen (research_id, Research_name, Description, Publisher, Status, last_updated) VALUES ('$person','$title','$detail', 10001,'Pending',now());";
+    $sql = "INSERT INTO applicant (Research_ID, User_ID, Status, motivation) VALUES ('$person','$title','Pending','$detail');";
     if (mysqli_query($conn,$sql)){
         echo ("<script>
 window.alert('Data Berhasil Ditambahkan');
@@ -49,7 +49,7 @@ mysqli_close($conn);
 <div class= "container">
     <div class= "row">
         <div class= "col-md-12">
-            <h1 align = "center">Research Project</h1>
+            <h1 align = "center">Appplicant</h1>
         </div>
     </div>
 
@@ -59,11 +59,11 @@ mysqli_close($conn);
     <input type="text" class="form-control" id="researchid" readonly placeholder="<?php echo $person?>">
   </div>
   <div class="form-group">
-    <label for="researchtitle"><h3>Research Title</h3></label>
-    <input type="text" class="form-control" id="researchtitle" placeholder="Research Title here" name="judul">
+    <label for="UserID"><h3>NIM</h3></label>
+    <input type="text" class="form-control" id="UserID" placeholder="Research Title here" name="judul">
   </div>
   <div class="form-group">
-    <label for="detail"><h3>Details</h3></label>
+    <label for="detail"><h3>Motivation</h3></label>
     <textarea class="form-control" id="detail" rows="10" style="overflow: auto;" name="detail"></textarea>
   </div>
   <input type="submit" class="btn btn-primary" name="btnsubmit">

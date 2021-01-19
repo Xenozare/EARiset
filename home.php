@@ -50,7 +50,7 @@ $data = mysqli_fetch_array($id);
                           <h5 class="card-title"><?php echo $row["Research_name"]; ?></h5>
                           <p class="card-text" style="overflow: hidden; max-height: 130px"><?php echo $row["Description"]; ?></p>
                           <p class="card-text"><small class="text-muted">Last Updated <?php echo $row["last_updated"]; ?></small></p>
-                          <button type="button" class="btn btn-primary btn-sm">Join Research</button>
+                          <a  href="applicant.php" style="color: white"><button type="button" class="btn btn-primary btn-sm">Join Research</button></a>
 
                         </div>
                         </div>
